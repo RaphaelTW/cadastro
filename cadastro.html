@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8" dir="ltr">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="Raphael-Laurentino">
+
+    <title>Cadastro</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+
+    <link rel="stylesheet" href="css/cadastro.css">
+
+    <link rel="stylesheet" href="css/bootstrap.mim.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css" rel="stylesheet">
+
+</head>
+
+<!-- [Inicio da Sessão: Bloco de Design] -->
+<section class="background-radial-gradient overflow-hidden">
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+                <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+                <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+                <div class="card bg-glass">
+                    <div class="card-body px-4 py-5 px-md-5">
+                        <div class="text-center">
+                            <img src="img/globoSeuLogo.png" style="width: 185px" alt="logo"/>
+                            <h4 class="mt-1 mb-3 pb-1"></h4>
+                        </div>
+
+                        <p class="mb-4">Bem vindo(a)! a tela de cadastro</p>
+
+                        <form id="register-form" action="">
+                            <!-- [Grade de 2 colunas com entradas de texto para o nome e sobrenome] -->
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline half-box spacing">
+                                        <input type="text" name="name" id="name" class="form-control"
+                                               placeholder="Digite seu nome"
+                                               data-required data-min-length="3" data-max-length="16"
+                                               onfocusout="verificarCampo('name')"
+                                               required="required"/>
+                                        <label class="form-label" for="name">Nome</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline half-box">
+                                        <input type="text" id="lastname" class="form-control"
+                                               placeholder="Digite seu sobrenome"
+                                               data-required data-only-letters onfocusout="verificarCampo('lastname')"
+                                               required/>
+                                        <label class="form-label" for="lastname">Sobrenome</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- [Entrada do e-mail] -->
+                            <div class="form-outline full-box mb-4">
+                                <input type="email" name="email" id="email" class="form-control"
+                                       placeholder="Digite seu e-mail"
+                                       data-min-length="2" data-email-validate onfocusout="verificarCampo('email')"
+                                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required/>
+                                <label class="form-label" for="email">Email</label>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline half-box spacing">
+                                        <input type="date" name="idade" id="idade" class="form-control"
+                                               data-required onfocusout="verificarCampo('idade')" required="required"/>
+                                        <label class="form-label" for="idade">Data de nacimento</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline half-box spacing">
+                                        <input type="tel" name="telefone" id="telefone" class="form-control"
+                                               placeholder="" maxlength="15" data-required
+                                               onfocusout="verificarCampo('telefone')" required="required"/>
+                                        <label class="form-label" for="telefone">Celular</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- [Entrada da senhas] -->
+                            <div class="form-outline half-box spacing mb-4">
+                                <input type="password" id="password" name="password"
+                                       class="form-control text-danger"
+                                       placeholder="Digite sua senha" data-password-validate data-required
+                                       onfocusout="verificarCampo('password')" required/>
+                                <label class="form-label" for="password">Senha</label>
+                            </div>
+
+                            <div class="form-outline half-box mb-4">
+                                <input type="password" id="passwordconfirmation" name="passwordconfirmation"
+                                       class="form-control text-danger" placeholder="Digite novamente sua senha"
+                                       data-equal="password"
+                                       onfocusout="verificarCampo('password')" required/>
+                                <label class="form-label" for="passwordconfirmation">
+                                    Confirme a sua senha
+                                </label>
+                            </div>
+
+                            <!-- [Checkbox] -->
+                            <div class="form-check d-flex justify-content-center mb-4">
+                                <input class="form-check-input me-2" type="checkbox" value="" name="agreement"
+                                       id="agreement" checked/>
+                                <label for="agreement" id="agreement-label">
+                                    Eu li e aceito os
+                                    <a href="#">termos de uso</a>
+                                </label>
+                            </div>
+
+                            <!-- [Botão de registro] -->
+                            <button type="submit" class="btn btn-primary btn-block mb-4">
+                                Registrar
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<p class="error-validation template"></p>
+<!-- [Fim da Seção: Bloco de Design] -->
+
+<!-- [Lista de Scripts] -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script>
+
+<!-- [Script para validação dos campos] -->
+<script>
+    let btn = document.querySelector(".lnr-eye");
+    btn.addEventListener("click", function () {
+        let input = document.querySelector("#password");
+        if (input.getAttribute("type") == "password") {
+            input.setAttribute("type", "text");
+        } else {
+            input.setAttribute("type", "password");
+        }
+    });
+</script>
+
+<script>
+    let password = document.getElementById("password"),
+        passwordconfirmation = document.getElementById("passwordconfirmation");
+
+    function validatePassword() {
+        if (password.value != passwordconfirmation.value) {
+            passwordconfirmation.setCustomValidity("Senhas diferentes!");
+        } else {
+            passwordconfirmation.setCustomValidity("");
+        }
+    }
+
+    password.onchange = validatePassword;
+    passwordconfirmation.onkeyup = validatePassword;
+</script>
+
+<script src="js/bootstrap.mim.js"></script>
+<script src="js/telefone.js"></script>
+
+</html>
